@@ -1,0 +1,1 @@
+<div>ODRADJENO!</div><?php /**PATH C:\xampp\htdocs\webshop\resources\views/sucsess.blade.php ENDPATH**/ ?>
