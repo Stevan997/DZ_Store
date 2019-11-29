@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use \App\Repositories\ProizvodiRepository;
+use \App\Racun;
+use \App\Stavke;
 
 class KorpaController extends Controller
 {
@@ -43,4 +47,64 @@ class KorpaController extends Controller
 
         return back();
     }
+
+    public function upisFakture(Request $request){
+        try{
+            DB::beginTransaction();
+
+                $faktura = $this->racun($request);
+                $ukupnaSuma = $this->stavke($request, $faktura);
+                // return json_encode(['msg' => $ukupnaSuma]);
+
+
+                // update fakture ukupnom sumom fakture i brojem narudžbenice
+                $faktura->update(['Iznos' => $ukupnaSuma]);
+                $request->session()->forget('korpa');
+
+            DB::commit();
+                return json_encode(['msg' => 'Vasa narudzbina je uspesna!']);
+
+        } catch (\Exception $e) {
+            DB::rollback();
+            return json_encode(['msg' => $e]);
+        }
+    }
+
+    public function racun($request){
+        $korisnik = \App\User::find(Auth::user()->id);
+
+        $faktura = new Racun;
+        $faktura->ID_Korisnika = $korisnik->id;
+        $faktura->Datum = date('d-m-y');
+        $faktura->Iznos = 0;
+        $faktura->Placanje = $request['placanje'] ?? 'Pouzecem';
+        $faktura->Status = 1;
+        $faktura->save();
+
+        return $faktura;
+    }
+
+    public function stavke($request, $faktura){
+        $ukupnaCena = 0;
+        $niz = 0;
+        $data = $request->session()->all();
+        foreach($data['korpa'] as $d){
+            $cenaPro = 0;
+            $proizvod = ProizvodiRepository::jedanProizvod($d);
+            
+            $stavke = new Stavke;
+            $stavke->ID_Racuna = $faktura->ID;
+            $stavke->JSP = $proizvod->JSP;
+            $stavke->kolicina = $request['niz'][$niz];
+            $cenaPro = $stavke->kolicina * $proizvod->Cena;
+            $stavke->Cena = $proizvod->Cena;
+            $stavke->save();
+            
+            $niz++;
+            $ukupnaCena += $cenaPro;
+        }
+
+        return $ukupnaCena;
+    }
+
 }

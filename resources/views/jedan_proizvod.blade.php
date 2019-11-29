@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 @include('head')
 <body>
-    @include('layouts.app')
-    @include('layouts.back')
-    @include('layouts.cart')
+    @include('layouts.header')
 
 
-    <div class="container">
+    <div class="mt-2 container">
         <div class="row justify-content-center">
             <div class="card m-3 w-50 h-50">
                 <p class="m-1"><span class="d-inline-block w-25">NAZIV</span>{{$proizvod->Naziv}}</p>
@@ -25,6 +23,5 @@
         </div>
 
     </div>
-    @include('boots')
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 @include('head')
 <body>
-@include('layouts.app')
+@include('layouts.header')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -71,6 +71,5 @@
         </div>
     </div>
 </div>
-@include('boots')
 </body>
 </html>

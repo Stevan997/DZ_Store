@@ -2,10 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('head')
 
-@include('layouts.app')
+@include('layouts.header')
 <body>
 
-<div class="container">
+<div class="mt-2 container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -24,6 +24,5 @@
         </div>
     </div>
 </div>
-@include('boots')
 </body>
 </html>

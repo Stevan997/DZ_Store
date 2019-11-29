@@ -2,8 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('head')
 
-@include('layouts.app')
-@include('layouts.back')
+@include('layouts.header')
 <body>
 <div class="container text-right w-75">
     <h2 class="py-4 text-center">IZMENA PODATAKA</h2>
@@ -25,6 +24,5 @@
     </div>
 </div>
 
-@include('boots')
 </body>
 </html>

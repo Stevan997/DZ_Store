@@ -2,7 +2,7 @@
 
 @include('head')
 <body>
-@include('layouts.app')
+@include('layouts.header')
 
 <div class="container">
     <div class="row justify-content-center">
@@ -28,6 +28,5 @@
         </div>
     </div>
 </div>
-@include('boots')
 </body>
 </html>

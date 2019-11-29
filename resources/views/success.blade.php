@@ -15,8 +15,6 @@
             <a href="/prodavnica" class="display-4">DZ Store</a> 
         </div>
     @endif
-    
-    
-    @include('boots')
+
 </body>
 </html>

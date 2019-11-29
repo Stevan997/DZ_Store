@@ -2,7 +2,7 @@
 @include('head')
 <body>
 
-@include('layouts.app')
+@include('layouts.header')
 
 <div class="container">
     <div class="row justify-content-center">
@@ -46,7 +46,7 @@
                                 <label for="Ime" class="col-md-4 col-form-label text-md-right">{{ __('Ime') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="Ime" type="text" class="form-control @error('Ime') is-invalid @enderror" name="Ime">
+                                    <input id="Ime" type="text" class="form-control @error('Ime') is-invalid @enderror" name="Ime" required>
 
                                     @error('Ime')
                                         <span class="invalid-feedback font-weight-bold" role="alert">
@@ -60,7 +60,7 @@
                                 <label for="Prezime" class="col-md-4 col-form-label text-md-right">{{ __('Prezime') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="Prezime" type="text" class="form-control @error('Prezime') is-invalid @enderror" name="Prezime">
+                                    <input id="Prezime" type="text" class="form-control @error('Prezime') is-invalid @enderror" name="Prezime" required>
                                     @error('Prezime')
                                         <span class="invalid-feedback font-weight-bold" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
                                 <label for="Adresa" class="col-md-4 col-form-label text-md-right">{{ __('Adresa') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="Adresa" type="text" class="form-control @error('Adresa') is-invalid @enderror" name="Adresa">
+                                    <input id="Adresa" type="text" class="form-control @error('Adresa') is-invalid @enderror" name="Adresa" required>
                                     @error('Adresa')
                                         <span class="invalid-feedback font-weight-bold" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -86,7 +86,7 @@
                             <label for="Grad" class="col-md-4 col-form-label text-md-right">{{ __('Grad') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Grad" type="text" class="form-control @error('Grad') is-invalid @enderror" name="Grad">
+                                <input id="Grad" type="text" class="form-control @error('Grad') is-invalid @enderror" name="Grad" required>
                                 @error('Grad')
                                         <span class="invalid-feedback font-weight-bold" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -100,7 +100,7 @@
                                 <label for="Pos_br" class="col-md-4 col-form-label text-md-right">{{ __('Postanski Broj') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="Pos_br" type="number" class="form-control @error('Pos_br') is-invalid @enderror" name="Pos_br">
+                                    <input id="Pos_br" type="number" class="form-control @error('Pos_br') is-invalid @enderror" name="Pos_br" required>
                                     @error('Pos_br')
                                         <span class="invalid-feedback font-weight-bold" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -113,7 +113,7 @@
                                 <label for="Br_tel" class="col-md-4 col-form-label text-md-right">{{ __('Broj Telefona') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="Br_tel" type="number" class="form-control @error('Br_tel') is-invalid @enderror" name="Br_tel">
+                                    <input id="Br_tel" type="number" class="form-control @error('Br_tel') is-invalid @enderror" name="Br_tel" required>
                                     @error('Br_tel')
                                         <span class="invalid-feedback font-weight-bold" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -126,7 +126,7 @@
                                 <label for="Dat_rod" class="col-md-4 col-form-label text-md-right">{{ __('Datum Rodjenja') }}</label>
     
                                 <div class="col-md-6">
-                                    <input id="Dat_rod" type="text" class="form-control @error('Dat_rod') is-invalid @enderror" name="Dat_rod">
+                                    <input id="Dat_rod" type="text" class="form-control @error('Dat_rod') is-invalid @enderror" name="Dat_rod" required>
                                     @error('Dat_rod')
                                         <span class="invalid-feedback font-weight-bold" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -170,6 +170,5 @@
         </div>
     </div>
 </div>
-@include('boots')
 </body>
 </html>

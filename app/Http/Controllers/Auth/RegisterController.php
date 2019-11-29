@@ -56,9 +56,9 @@ class RegisterController extends Controller
             'Prezime' => ['required', 'string', 'min:4', 'max:40'],
             'Adresa' => ['required', 'string', 'max:50'],
             'Grad' => ['required', 'string', 'max:25'],
-            'Pos_br' => ['required', 'numeric','min:5' ,'max:5'],
-            'Br_tel' => ['required', 'numeric','min:9' ,'max:11'],
-            'Dat_rod' => ['required', 'numeric','min:8' ,'max:10'],
+            'Pos_br' => ['required', 'numeric'],
+            'Br_tel' => ['required', 'numeric'],
+            'Dat_rod' => ['required', 'numeric'],
         ]);
     }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     @include('head')
     <body>
-        @include('layouts.app')
+        @include('layouts.header')
         <div class="flex-center position-ref full-height">
             {{-- @if (Route::has('login'))
                 <div class="top-right links">
@@ -25,8 +25,6 @@
 
             </div>
         </div>
-
-        @include('boots')
     </body>
 </html>
 
