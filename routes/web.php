@@ -14,7 +14,7 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', 'ProizvodiController@index');
+Route::get('/', 'ProizvodiController@pocetnaStrana');
 
 
 Route::prefix('/adminpanel')->group(function(){

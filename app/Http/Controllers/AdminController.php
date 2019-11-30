@@ -235,14 +235,15 @@ class AdminController extends Controller
     }
 
     public function aktivna($id){
-        $slike = DB::table('glavne_fotografije')
-        ->where('ID', $id)
-        ->get();
+        $slike = \App\Slike::find($id);
+
 
         if($slike->Aktivna == 0)
             $slike->Aktivna = 1;
         else
             $slike->Aktivna = 0;
+
+        $slike->save();
 
         return view('success');
     }
@@ -250,11 +251,12 @@ class AdminController extends Controller
     public function uploadSlike(Request $request){
         $path = public_path().'/images';
         if ( $request->hasFile('slika')) {
-            $image = move_uploaded_file($path, $request->slika);
-
+            $image = move_uploaded_file($_FILES["slika"]["tmp_name"], $path . '/' . $_FILES['slika']['name']);
+            // dd($image);
 
             $slika = new Slike;
-            $slika->Slika = $path.'/'.$_FILES['slika']['name'];
+            $slika->Slika = '/images/' . $_FILES['slika']['name'];
+            // $slika->Slika = $path.'/'.$_FILES['slika']['name'];
             $slika->Aktivna = 1;
 
             $slika->save();

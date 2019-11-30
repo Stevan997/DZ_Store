@@ -1,10 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky">   
         @if (isset(Auth::user()->Administrator) and Auth::user()->Administrator == '1')
-            <a class="navbar-brand" href="/adminpanel">Home</a>    
+            <a class="navbar-brand" href="/adminpanel">
+                <img src="/images/logo.png" width="110" height="40" alt="">
+            </a>        
         @else
-            <a class="navbar-brand" href="/prodavnica">Home</a>        
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo.png" width="110" height="30" alt="">
+            </a>      
         @endif
-    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,7 +16,7 @@
 
         <li class="mx-4 nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                DZ Store
+                Home
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Galerija</a>

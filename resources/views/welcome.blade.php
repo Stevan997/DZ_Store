@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-    @include('head')
-    <body>
-        @include('layouts.header')
-        <div class="flex-center position-ref full-height">
-            {{-- @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+@include('head')
+<body>
+    @include('layouts.header')
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif --}}
-
-            <div class="content">
-                @section('content')
-
-
-                @show
-
-            </div>
+    <div class="container">
+                @include('meni')
+        <div class="row justify-content-around">
+                @include('carousel')
         </div>
-    </body>
+        <form method="post" action="/prodavnica/filter" class="form-group m-2 row justify-content-center">
+            @csrf
+            <select name="sort" id="sort" class="form-control col-md-2 m-1">
+                <option value="naziv" selected>Naziv</option>
+                <option value="JSP">ID</option>
+            </select>
+            <select name="way" id="way" class="form-control col-md-2 m-1">
+                <option value="asc" selected>UP</option>
+                <option value="desc" selected>DOWN</option>
+            </select>
+            <input type="submit" value="SUBMIT" class="btn btn-primary">
+        </form>
+        <div class="row justify-content-around">   
+        @foreach($proizvodi as $p)
+            <div class="card m-3 col-md-2">
+                <span>{{$p->JSP}} - {{$p->Naziv}}</span>
+                <a href="/prodavnica/{{ $p->JSP }}">DETALJNIJE</a>
+            </div>
+        @endforeach
+        </div>
+    </div>
+</body>
 </html>
+    
 

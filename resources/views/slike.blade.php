@@ -21,10 +21,8 @@
                     <li class="list-group-item list-group-item-info m-1">
                         <img src="{{$s->Slika}}" alt="" class="w-10">
                         <span class="ml-5">{{$s->ID}} - @if($s->Aktivna == 0) Nije Aktivna @else Aktivna @endif</span>
-                        <a class="btn btn-primary float-right" href="slike/aktivna/{{ $s->ID }}">AKTIVNA</a>                      
+                        <a class="btn btn-primary float-right" href="/adminpanel/slike/aktivna/{{ $s->ID }}">AKTIVNA</a>                      
                     </li>
-                <p>{{public_path().'/images'}}</p>
-                <p>{{$s->Slika}}</p>
                 @endforeach
             </ul>
         </div>

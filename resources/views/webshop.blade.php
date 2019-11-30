@@ -2,8 +2,10 @@
 @include('head')
 <body>
     @include('layouts.header')
+    
 
     <div class="container">
+        @include('meni')
         <form method="post" action="/prodavnica/filter" class="form-group m-2 row justify-content-center">
             @csrf
             <select name="sort" id="sort" class="form-control col-md-2 m-1">
@@ -25,6 +27,10 @@
         @endforeach
         </div>
     </div>
+
+
+    {{-- @include('layouts.footer') --}}
+
 </body>
 </html>
     

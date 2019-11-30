@@ -11,10 +11,24 @@ use \App\Stavke;
 
 class ProizvodiController extends Controller
 {
+    
     public function index(){
         // $proizvodi = \App\Proizvodi::orderBy('JSP', 'asc')->get();
         $proizvodi = ProizvodiRepository::pregledProiz();
         return view('webshop', compact('proizvodi'));
+    }
+
+    public function pocetnaStrana(){
+        $proizvodi = DB::table('proizvodi')
+        ->inRandomOrder()
+        ->take(15)
+        ->get();
+
+        $slike = DB::table('glavne_fotografije')
+        ->where('Aktivna', 1)
+        ->get();
+
+        return view('welcome', compact('proizvodi', 'slike'));
     }
 
     public function sort(Request $request){

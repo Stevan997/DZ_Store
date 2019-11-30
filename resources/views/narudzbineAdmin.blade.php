@@ -25,7 +25,7 @@
                                 @endforeach
                         </p>
                         <a class="btn btn-primary mr-1" href="/adminpanel/narudzbinePregled/{{$f->ID}}/obustavi">OBUSTAVI</a>
-                        @if (Auth::user()->Administrator == 1)
+                        @if (isset(Auth::user()->Administrator) and Auth::user()->Administrator == 1)
                             <a class="btn btn-primary mr-1" href="/adminpanel/narudzbinePregled/{{$f->ID}}/izvrseno">IZVRSENO</a>
                         @endif
                         

@@ -12,7 +12,7 @@
         <div class="w-100 text-center p-5">
             <h2 class="display-3">ODRADJENO!</h2>
     
-            <a href="/prodavnica" class="display-4">DZ Store</a> 
+            <a href="/" class="display-4">DZ Store</a> 
         </div>
     @endif
 

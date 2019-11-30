@@ -9,24 +9,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="/meni.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <style>
         html, body {
-            background-color: #fff;
+            background-color: #e8e8e8;
             color: #636b6f;
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Raleway', sans-serif;
             font-weight: 200;
-            height: 100vh;
+            height: 100%;
+            width: 100%;
             margin: 0;
+            background-image: url('/images/background.png');
+            background-position: center;
+            background-repeat: repeat;
         }
 
         /* body {
-            background-image: url('/images/364597.jpg');
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
+            
         } */
 
         .full-height {
@@ -84,5 +87,9 @@
         .w-10{
             width: 10%!important;
         }
+        .c-b{
+            background-color: rgb(0, 123, 255, 0.7);
+        }
+        
     </style>
 </head>
